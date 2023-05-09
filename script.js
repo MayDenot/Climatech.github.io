@@ -8,7 +8,8 @@ const date = document.getElementById('date');
 const temp = document.getElementById('temp');
 const weather = document.getElementById('weather');
 const range = document.getElementById('range');
-let iconoAnimado = document.getElementById('icono-animado');
+//const icons = document.getElementById('icon');
+
 
 // Extracts the information from the api and returns it where it belongs
 async function search(query) {
