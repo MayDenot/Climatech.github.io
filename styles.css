@@ -92,11 +92,6 @@ body {
     text-transform: uppercase;
 }
 
-/*.weather #icono-animado {
-    height: 50px;
-    width: 100px;
-}*/
-
 .daily-forecast-grid {
     display: flex;
     justify-content: center;
