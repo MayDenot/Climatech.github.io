@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta&family=Roboto:ital,wght@0,400;1,300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    max-width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    max-width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+#s1, #s2 {
+    width: 100%;
+    height: 100vh;
+    background-color: #939694;
+}
+
+.logo {
+    width: 40%;
+    margin-left: 35px;
+}
+
+.container-general,
+.container-general-2 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+}
+
+.change-place {
+    padding-bottom: 10px;
+}
+
+.change-place input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid black;
+    font-size: 20px;
+}
+
+.change-place input::placeholder {
+    color: black;
+    text-align: center;
+}
+
+.change-place label i {
+    font-size: 35px;
+}
+
+.general-forecast-grid {
+    display: flex;
+    justify-content: flex-start;
+    background-color: aquamarine;
+    width: 400px;
+    height: 200px;
+    border-radius: 20px;
+    margin: 10px 0 20px 0;
+}
+
+.general-forecast-grid .weather-card-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 10px 20px;
+}
+
+.city {
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.date {
+    font-size: 15px;
+}
+
+.weather::first-letter {
+    text-transform: uppercase;
+}
+
+/*.weather #icono-animado {
+    height: 50px;
+    width: 100px;
+}*/
+
+.daily-forecast-grid {
+    display: flex;
+    justify-content: center;
+    background-color: aqua;
+    width: 400px;
+    height: 130px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.forecast-wind-tide-grid {
+    display: flex;
+    justify-content: center;
+    background-color: lightblue;
+    width: 400px;
+    height: 450px;
+    border-radius: 20px;
+}
+
+.moon-calendar-grid {
+    display: flex;
+    justify-content: center;
+    background-color: lightblue;
+    width: 400px;
+    height: 300px;
+    border-radius: 20px;
+    margin-top: 10px;
+}
