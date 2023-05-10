@@ -10,7 +10,6 @@ const weather = document.getElementById('weather');
 const range = document.getElementById('range');
 //const icons = document.getElementById('icon');
 
-
 // Extracts the information from the api and returns it where it belongs
 async function search(query) {
     try {
@@ -29,11 +28,10 @@ async function search(query) {
     }
 }
 
-// Convert kelvin to celsius
+// Convert Kelvin to Celsius
 function toCelcius(kelvin) {
     return Math.round(kelvin - 273.15);
 }
-
 
 function onSubmit(event) {
     event.preventDefault();

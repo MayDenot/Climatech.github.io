@@ -1,9 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Mukta&family=Roboto:ital,wght@0,400;1,300&display=swap');
 
+:root {
+    --bg-color: rgba(0, 0, 0, 0.7);
+    --br-grid: 20px;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow-x: hidden;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -11,13 +17,11 @@ html {
     scroll-behavior: smooth;
     max-width: 100%;
     height: 100%;
-    overflow-x: hidden;
 }
 
 body {
     max-width: 100%;
     min-height: 100vh;
-    overflow-x: hidden;
 }
 
 #s1 {
@@ -25,32 +29,32 @@ body {
     height: 150vh;
     background-image: url(images/cielo-fondo.jpg);
     background-size: cover;
+    overflow-y: hidden;
 }
 
-.logo {
-    width: 40%;
-    margin-left: 35px;
-}
-
-.container-general,
-.container-general-2 {
+.container-header {
     display: flex;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
     width: 100%;
-    height: 100vh;
+}
+
+.container-header .logo {
+    width: 40%;
 }
 
 .change-place {
-    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
 }
 
 .change-place input {
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: var(--br-grid);
     border: none;
     outline: none;
-    border-bottom: 2px solid black;
     font-size: 20px;
+    padding: 5px;
 }
 
 .change-place input::placeholder {
@@ -58,25 +62,29 @@ body {
     text-align: center;
 }
 
-.change-place label i {
-    font-size: 35px;
+.change-place i {
+    font-size: 40px;
+    padding-bottom: 5px;
+    margin: 0 5px;
+}
+
+.container-general {
+    width: 100%;
+    display: grid;
+    grid-gap: 10px 0;
+    grid-template-columns: 1fr;
+    grid-template-rows: 300px 150px 400px 300px;
+    padding: 15px;
 }
 
 .general-forecast-grid {
-    display: flex;
-    justify-content: flex-start;
-    background-color: rgba(0, 0, 0, 0.7);
-    width: 400px;
-    height: 200px;
-    border-radius: 20px;
-    margin: 10px 0 20px 0;
+    background-color: var(--bg-color);
+    border-radius: var(--br-grid);
 }
 
 .general-forecast-grid .weather-card-1 {
     display: flex;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 20px;
+    padding: 20px;
 }
 
 .general-forecast-grid .weather-card-1 .wrapper-card {
@@ -105,35 +113,177 @@ body {
 }
 
 .general-forecast-grid .weather-card-1 figure #icon {
-    width: 180px;
+    width: 250px;
 }
 
 .daily-forecast-grid {
-    display: flex;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.7);
-    width: 400px;
-    height: 200px;
-    border-radius: 20px;
-    margin-bottom: 20px;
+    background-color: var(--bg-color);
+    border-radius: var(--br-grid);
+    grid-row: 2;
 }
 
 .forecast-wind-tide-grid {
-    display: flex;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.7);
-    width: 400px;
-    height: 450px;
-    border-radius: 20px;
+    background-color: var(--bg-color);
+    border-radius: var(--br-grid);
+    grid-row: 3;
 }
 
 .moon-calendar-grid {
-    display: flex;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.7);
-    width: 400px;
-    height: 300px;
-    border-radius: 20px;
-    margin-top: 20px;
+    background-color: var(--bg-color);
+    border-radius: var(--br-grid);
+    grid-row: 4;
 }
 
+@media screen and (min-width: 700px) {
+
+    .container-header .logo {
+        width: 35%;
+    }
+}
+
+@media screen and (min-width: 850px) {
+
+    .container-header {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .container-header .logo {
+        width: 20%;
+    }
+
+    .container-general {
+        max-width: 100%;
+        display: grid;
+        grid-gap: 10px;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 300px 125px 350px;
+        margin: 0;
+        padding: 20px;
+    }
+
+    .daily-forecast-grid {
+        grid-row: 2;
+    }
+
+    .forecast-wind-tide-grid  {
+        grid-column: 1 / 3;
+        grid-row: 3;
+    }
+    
+    .moon-calendar-grid {
+        grid-row: 1 / 3;
+        grid-column: 2;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+
+    .container-header .logo {
+        width: 20%;
+    }
+
+    .container-general {
+        display: grid;
+        grid-gap: 10px;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 300px 450px;
+    }
+
+    .general-forecast-grid .weather-card-1 {
+        height: 100%;
+    }
+    
+    .general-forecast-grid .weather-card-1 .wrapper-card {
+        width: 100%;
+    }
+
+    .city {
+        font-size: 25px;
+    }
+    
+    .date {
+        font-size: 18px;
+    }
+    
+    .temp {
+        font-size: 35px;
+    }
+
+    .general-forecast-grid .weather-card-1 figure #icon {
+        margin-right: 100px;
+        width: 250px;
+    }
+
+    .general-forecast-grid {
+        grid-column: 1;
+    }
+
+    .daily-forecast-grid {
+        grid-row: 2;
+        grid-column: 1;
+    }
+
+    .forecast-wind-tide-grid {
+        grid-row: 1;
+        grid-column: 2;
+    }
+    
+    .moon-calendar-grid {
+        grid-row: 2;
+        grid-column: 2;
+    }
+}
+
+@media screen and (min-width: 1250px) {
+
+    .container-header .logo {
+        width: 15%;
+    }
+
+    .container-general {
+        display: grid;
+        grid-gap: 10px;
+        grid-template-columns: 50% 25% 25%;
+        grid-template-rows: 400px 250px;
+        margin: 0;
+        padding-right: 40px;
+    }
+
+    .city {
+        font-size: 30px;
+    }
+    
+    .date {
+        font-size: 20px;
+    }
+    
+    .temp {
+        font-size: 40px;
+    }
+
+    .general-forecast-grid .weather-card-1 figure #icon {
+        margin-right: 200px;
+        margin-top: 25px;
+        width: 300px;
+    }
+
+    .general-forecast-grid {
+        grid-column: 1;
+    }
+
+    .daily-forecast-grid {
+        grid-row: 2;
+        grid-column: 1;
+    }
+
+    .forecast-wind-tide-grid {
+        grid-row: 1 / 3;
+        grid-column: 2;
+    }
+    
+    .moon-calendar-grid {
+        grid-row: 1 / 3;
+        grid-column: 3;
+    }
+}

@@ -15,14 +15,14 @@
 
 <body>
     <section id="s1">
-        <img class="logo" src="images/Logo-Climatech.png" alt="Logo">
-        <div class="container-general">
+        <div class="container-header">
+            <img class="logo" src="images/Logo-Climatech.png" alt="Logo">
             <form class="change-place" id="search-form">
                 <input class="search" type="search" placeholder="Buscar ciudad..." id="search-box" list="off">
-                <label for="icono-search">
-                    <i class="fa-solid fa-location-dot"></i>
-                </label>
+                <i class="fa-solid fa-location-dot"></i>
             </form>
+        </div>
+        <div class="container-general">
             <div class="general-forecast-grid">
                 <div class="weather-card-1">
                     <div class="wrapper-card">
@@ -31,21 +31,24 @@
                         <div class="temp" id="temp">10<sup>°C</sup></div>
                         <div class="weather" id="weather">Clear</div>
                         <div class="range" id="range">8<sup>°C</sup> / 12<sup>°C</sup></div>
-                    </div>
+                    </div> <br> 
                     <figure>
                         <img id="icon" src="animated/day.svg" alt="">
                     </figure>
                 </div>
             </div>
             <div class="daily-forecast-grid">
+                <div class="weather-card-2"></div>
                 <!--CARRUSEL-->
             </div>
             <div class="forecast-wind-tide-grid">
-
+                <div class="weather-card-3"></div>
+                <!-- VIENTO Y MAREAS -->
             </div>
-                <div class="moon-calendar-grid">
-    
-                </div>
+            <div class="moon-calendar-grid">
+                <div class="weather-card-4"></div>
+                <!-- LUNA -->
+            </div>
         </div>
     </section>
 </body>
