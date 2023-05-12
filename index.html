@@ -11,6 +11,8 @@
     <!-- LINKS EXTERNOS -->
     <script src="https://kit.fontawesome.com/dc94cdf766.js" crossorigin="anonymous"></script>
     <link rel="icon" type="image/png" href="images/Icono-Climatech.png">
+    <!-- SWIPER CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/swiper@9.1.0/swiper-bundle.min.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -25,25 +27,78 @@
         <div class="container-general">
             <div class="general-forecast-grid">
                 <div class="weather-card-1">
-                    <div class="wrapper-card">
-                        <div class="city" id="city">Buenos Aires, ARG</div>
-                        <div class="date" id="date">08/05/2023</div>
-                        <div class="temp" id="temp">10<sup>°C</sup></div>
-                        <div class="weather" id="weather">Clear</div>
-                        <div class="range" id="range">8<sup>°C</sup> / 12<sup>°C</sup></div>
-                    </div> <br> 
-                    <figure>
-                        <img id="icon" src="animated/day.svg" alt="">
+                    <div class="wrapper-card-1">
+                        <div class="city" id="city"></div>
+                        <div class="date" id="date"></div>
+                        <div class="temp" id="temp"></div>
+                        <div class="weather" id="weather"></div>
+                        <div class="range" id="range"></div>
+                    </div>
+                    <figure id="icon" class="icon">
+                        <img src="">
                     </figure>
                 </div>
             </div>
             <div class="daily-forecast-grid">
-                <div class="weather-card-2"></div>
-                <!--CARRUSEL-->
+                <h3>Pronóstico de 8 días / 8 days forecast</h3>
+                <div class="weather-card-2">
+                    <div class="swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="grid-item">
+                                    <div class="date">Mañana</div>
+                                    <div class="temp">20°C</div>
+                                    <div class="desc">Parcialmente Nublado</div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="grid-item">
+                                    <div class="date">Viernes</div>
+                                    <div class="temp">22°C</div>
+                                    <div class="desc">Soleado</div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="grid-item">
+                                    <div class="date">Sabado</div>
+                                    <div class="temp">22°C</div>
+                                    <div class="desc">Soleado</div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="grid-item">
+                                    <div class="date">Domingo</div>
+                                    <div class="temp">22°C</div>
+                                    <div class="desc">Soleado</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- BUTTONS -->
+                        <div class="swiper-button-next "></div>
+                        <div class="swiper-button-prev "></div>
+                        <div class="swiper-pagination "></div>
+                    </div>
+                </div>
             </div>
-            <div class="forecast-wind-tide-grid">
-                <div class="weather-card-3"></div>
-                <!-- VIENTO Y MAREAS -->
+            <div class="forecast-wind-humidity-pressure-grid">
+                <div class="weather-card-3">
+                    <div class="wrapper-card-3">
+                        <div class="wind-grid">
+                            <h2>Viento / Wind</h2> 
+                            <div class="deg" id="deg"></div>
+                            <div class="gust" id="gust"></div>
+                            <div class="speed" id="speed"></div>
+                        </div>
+                        <div class="humidity-grid">
+                            <h2>Humedad / Humidity</h2> 
+                            <div class="humidity" id="humidity"></div>
+                        </div>
+                        <div class="pressure-grid">
+                            <h2>Presión / Pressure</h2> 
+                            <div class="pressure" id="pressure"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="moon-calendar-grid">
                 <div class="weather-card-4"></div>
@@ -51,6 +106,7 @@
             </div>
         </div>
     </section>
+    <!-- SWIPER JS-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9.1.0/swiper-bundle.min.js"></script>
 </body>
-
 </html>
