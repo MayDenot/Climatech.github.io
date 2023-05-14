@@ -7,10 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Climatech</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
-    <!-- LINKS EXTERNOS -->
-    <script src="https://kit.fontawesome.com/dc94cdf766.js" crossorigin="anonymous"></script>
     <link rel="icon" type="image/png" href="images/Icono-Climatech.png">
+    <!-- FONT AWESOME JS -->
+    <script src="https://kit.fontawesome.com/dc94cdf766.js" crossorigin="anonymous"></script>
     <!-- SWIPER CSS -->
     <link href="https://cdn.jsdelivr.net/npm/swiper@9.1.0/swiper-bundle.min.css" rel="stylesheet" />
 </head>
@@ -33,51 +32,11 @@
                         <div class="temp" id="temp"></div>
                         <div class="weather" id="weather"></div>
                         <div class="range" id="range"></div>
+                        <div class="location" id="location"></div>
                     </div>
                     <figure id="icon" class="icon">
                         <img src="">
                     </figure>
-                </div>
-            </div>
-            <div class="daily-forecast-grid">
-                <h3>Pronóstico de 8 días / 8 days forecast</h3>
-                <div class="weather-card-2">
-                    <div class="swiper">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="grid-item">
-                                    <div class="date">Mañana</div>
-                                    <div class="temp">20°C</div>
-                                    <div class="desc">Parcialmente Nublado</div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="grid-item">
-                                    <div class="date">Viernes</div>
-                                    <div class="temp">22°C</div>
-                                    <div class="desc">Soleado</div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="grid-item">
-                                    <div class="date">Sabado</div>
-                                    <div class="temp">22°C</div>
-                                    <div class="desc">Soleado</div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="grid-item">
-                                    <div class="date">Domingo</div>
-                                    <div class="temp">22°C</div>
-                                    <div class="desc">Soleado</div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- BUTTONS -->
-                        <div class="swiper-button-next "></div>
-                        <div class="swiper-button-prev "></div>
-                        <div class="swiper-pagination "></div>
-                    </div>
                 </div>
             </div>
             <div class="forecast-wind-humidity-pressure-grid">
@@ -85,7 +44,6 @@
                     <div class="wrapper-card-3">
                         <div class="wind-grid">
                             <h2>Viento / Wind</h2> 
-                            <div class="deg" id="deg"></div>
                             <div class="gust" id="gust"></div>
                             <div class="speed" id="speed"></div>
                         </div>
@@ -100,13 +58,55 @@
                     </div>
                 </div>
             </div>
-            <div class="moon-calendar-grid">
-                <div class="weather-card-4"></div>
-                <!-- LUNA -->
-            </div>
         </div>
+        <!-- <div class="daily-forecast-grid">
+            <h3>Pronóstico de 8 días / 8 days forecast</h3>
+            <div class="weather-card-2">
+                <div class="swiper">
+                    <div class="swiper-wrapper" id="weather-daily-forecast">
+                        <div class="swiper-slide">
+                            <div class="grid-item">
+                                <img src="" alt="" class="w-icon">
+                                <div class="day">Mañana</div>
+                                <div class="temp">20°C</div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="grid-item">
+                                <img src="" alt="" class="w-icon">
+                                <div class="day">Viernes</div>
+                                <div class="temp">22°C</div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="grid-item">
+                                <img src="" alt="" class="w-icon">
+                                <div class="day">Sabado</div>
+                                <div class="temp">22°C</div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="grid-item">
+                                <img src="" alt="" class="w-icon">
+                                <div class="day">Domingo</div>
+                                <div class="temp">22°C</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-button-next "></div>
+                    <div class="swiper-button-prev "></div>
+                    <div class="swiper-pagination "></div>
+                </div>
+            </div>
+        </div> -->
+        <!-- <div class="moon-calendar-grid">
+            <div class="weather-card-4"></div>
+        </div> -->
     </section>
     <!-- SWIPER JS-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9.1.0/swiper-bundle.min.js"></script>
+    <!-- JS -->
+    <script src="script.js"></script>
 </body>
 </html>
