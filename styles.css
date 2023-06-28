@@ -11,8 +11,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow-x: hidden;
     font-family: 'Roboto', sans-serif;
+    overflow: hidden;
 }
 
 html {
@@ -204,6 +204,18 @@ body {
 
     .weather-card-3 .wrapper-card-3 h2 {
         font-size: 22px;
+    }
+
+    img.init {
+        display: none;
+    }
+
+    div.init h2 {
+        display: none;
+    }
+
+    div:not(.init) h2 {
+        display: block;
     }
 
     .weather-card-3 .wrapper-card-3 .wind-grid .deg,

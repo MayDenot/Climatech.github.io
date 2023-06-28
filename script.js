@@ -1,4 +1,3 @@
-// Variables
 const api = {
     key: 'f3193ac87d2ffc8a5fa9ee7008c873a4',
     url: 'https://api.openweathermap.org/data/2.5/weather'
@@ -17,11 +16,6 @@ const pressure = document.getElementById('pressure');
 // let lat;
 // let lon;
 
-// NOTAS PARA MEJORAR LA PAGINA
-// HACER QUE ANTES DE QUE PONGAN EL LUGAR A BUSCAR, HAYA VISTA PREVIA DE ALGO EN LAS GRILLAS O QUE LA GRILLA
-// RESPONDA AUTOMATICAMENTE SEGUN DONDE ESTE EL USUARIO CON EL IP, Y PONER DIRECTAMENTE EL CLIMA DE ESA CIUDAD.
-// CONDICION EN EL QUE SI APARECE ALGUN DATO COMO INDEFINIDO O NAN, DIRECTAMENTE NO APAREZCA
-
 // Extracts the information from the api and returns it where it belongs
 async function search(query) {
     try {
@@ -32,7 +26,7 @@ async function search(query) {
         // General forecast grid
         city.innerHTML = `${data.name}, ${data.sys.country}`;
         date.innerHTML = (new Date()).toLocaleDateString();
-        temp.innerHTML = toCelcius(data.main.temp) +"<sup>°C<sup>";
+        temp.innerHTML = toCelcius(data.main.temp) + "<sup>°C<sup>";
         weather.innerHTML = data.weather[0].description;
         range.innerHTML = `${toCelcius(data.main.temp_min)}°C / ${toCelcius(data.main.temp_max)}°C`;
         icon.innerHTML = `<img src="http://openweathermap.org/img/wn//${data.weather[0].icon}@4x.png">`;
@@ -45,7 +39,7 @@ async function search(query) {
         console.log(err);
         alert('Hubo un error, revise si escribió bien su lugar');
     }
-}
+};
 
 // Convert Kelvin to Celsius
 function toCelcius(kelvin) {
@@ -123,3 +117,5 @@ function onSubmit(event) {
 //         }
 //     }
 // });
+
+
