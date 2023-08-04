@@ -8,8 +8,6 @@
     <title>Climatech</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="images/Icono-Climatech.png">
-    <!-- FONT AWESOME JS -->
-    <script src="https://kit.fontawesome.com/dc94cdf766.js" crossorigin="anonymous"></script>
     <!-- SWIPER CSS -->
     <link href="https://cdn.jsdelivr.net/npm/swiper@9.1.0/swiper-bundle.min.css" rel="stylesheet" />
 </head>
@@ -17,11 +15,16 @@
 <body>
     <section id="s1">
         <div class="container-header">
-            <img class="logo" src="images/Logo-Climatech.png" alt="Logo">
-            <form class="change-place" id="search-form">
-                <input class="search" type="search" placeholder="Buscar ciudad..." id="search-box" list="off">
-                <i class="fa-solid fa-location-dot"></i>
-            </form>
+            <img class="logo" src="images/Logo-Climatech.avif" alt="Logo">
+            <div class="wrapper-footer">
+                <form class="change-place" id="search-form">
+                    <input class="search" type="search" placeholder="Buscar ciudad..." id="search-box" list="off">
+                </form>
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" id="switch">
+                    <label for="switch"></label>
+                </div>
+            </div>
         </div>
         <div class="container-general">
             <div class="general-forecast-grid">
@@ -39,14 +42,20 @@
                     </figure>
                 </div>
             </div>
-            <div class="forecast-wind-humidity-pressure-grid">
+            <div class="forecast-wind-grid">
                 <div class="weather-card-3">
-                    <div class="wrapper-card-3 init">
+                    <div class="wrapper-card-3 wr-cards">
                         <div class="wind-grid">
                             <h2>Viento / Wind</h2>
                             <div class="gust" id="gust"></div>
                             <div class="speed" id="speed"></div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="forecast-humidity-pressure-grid">
+                <div class="weather-card-4">
+                    <div class="wrapper-card-4 wr-cards">
                         <div class="humidity-grid">
                             <h2>Humedad / Humidity</h2>
                             <div class="humidity" id="humidity"></div>
@@ -59,50 +68,10 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="daily-forecast-grid">
-            <h3>Pronóstico de 8 días / 8 days forecast</h3>
-            <div class="weather-card-2">
-                <div class="swiper">
-                    <div class="swiper-wrapper" id="weather-daily-forecast">
-                        <div class="swiper-slide">
-                            <div class="grid-item">
-                                <img src="" alt="" class="w-icon">
-                                <div class="day">Mañana</div>
-                                <div class="temp">20°C</div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="grid-item">
-                                <img src="" alt="" class="w-icon">
-                                <div class="day">Viernes</div>
-                                <div class="temp">22°C</div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="grid-item">
-                                <img src="" alt="" class="w-icon">
-                                <div class="day">Sabado</div>
-                                <div class="temp">22°C</div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="grid-item">
-                                <img src="" alt="" class="w-icon">
-                                <div class="day">Domingo</div>
-                                <div class="temp">22°C</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="swiper-button-next "></div>
-                    <div class="swiper-button-prev "></div>
-                    <div class="swiper-pagination "></div>
-                </div>
-            </div>
-        </div> -->
-        <!-- <div class="moon-calendar-grid">
-            <div class="weather-card-4"></div>
-        </div> -->
+        <footer>
+            2023 Hecho con amor desde Argentina <br>
+            Mayra Andrea Denot
+        </footer>
     </section>
     <!-- SWIPER JS-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9.1.0/swiper-bundle.min.js"></script>

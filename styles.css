@@ -12,7 +12,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-    overflow: hidden;
 }
 
 html {
@@ -23,15 +22,14 @@ html {
 
 body {
     max-width: 100%;
-    min-height: 100vh;
+    height: 100%;
 }
 
 #s1 {
     width: 100%;
-    height: 110vh;
-    background-image: url(images/cielo-fondo.jpg);
+    height: 100%;
+    background-image: url(images/temadia.avif);
     background-size: cover;
-    overflow-y: hidden;
 }
 
 .container-header {
@@ -41,8 +39,16 @@ body {
     width: 100%;
 }
 
-.container-header .logo {
+#s1.darkmode .container-header .logo {
     width: 40%;
+    background-color: rgba(255, 255, 255, 0.4);
+    clip-path: polygon(1% 25%, 100% 25%, 100% 81%, 1% 81%);
+}
+
+.wrapper-footer {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 .change-place {
@@ -51,23 +57,56 @@ body {
 }
 
 .change-place input {
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.2);
     border-radius: var(--br-grid);
     border: none;
     outline: none;
     font-size: 20px;
-    padding: 5px;
+    padding: 8px;
 }
 
 .change-place input::placeholder {
-    color: black;
+    color: #000;
     text-align: center;
 }
 
-.change-place i {
-    font-size: 40px;
-    padding-bottom: 5px;
-    margin: 0 5px;
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox-wrapper input[type=checkbox] {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+.checkbox-wrapper label {
+    cursor: pointer;
+    width: 50px;
+    height: calc(50px / 2);
+    background: rgba(255, 255, 255, 0.6);
+    display: block;
+    border-radius: 100px;
+    position: relative;
+}
+
+.checkbox-wrapper label:after {
+    content: '';
+    position: absolute;
+    top: 6%;
+    left: 3%;
+    width: calc(50% - 5%);
+    height: calc(100% - 10%);
+    background: #10a7ec;
+    border-radius: 90px;
+    transition: 0.3s;
+}
+
+.checkbox-wrapper input:checked+label::after {
+    left: calc(100% - 2.5%);
+    transform: translateX(-100%);
 }
 
 .container-general {
@@ -75,7 +114,7 @@ body {
     display: grid;
     grid-gap: 10px 0;
     grid-template-columns: 1fr;
-    grid-template-rows: 300px 450px;
+    grid-template-rows: 300px 200px 200px;
     padding: 15px;
 }
 
@@ -129,23 +168,105 @@ body {
     text-transform: uppercase;
 }
 
-/* .daily-forecast-grid {
-    background-color: var(--bg-color);
-    border-radius: var(--br-grid);
-    grid-row: 2;
-} */
+img.init {
+    display: none;
+}
 
-.forecast-wind-humidity-pressure-grid {
+div h2 {
+    display: none;
+}
+
+div.init h2 {
+    display: block;
+}
+
+
+.forecast-wind-grid {
     background-color: var(--bg-color);
     border-radius: var(--br-grid);
     grid-row: 2;
 }
 
-/* .moon-calendar-grid {
+.forecast-humidity-pressure-grid {
     background-color: var(--bg-color);
     border-radius: var(--br-grid);
-    grid-row: 4;
-} */
+    grid-row: 3;
+}
+
+.forecast-wind-grid {
+    width: 100%;
+    padding: 20px;
+}
+
+.forecast-humidity-pressure-grid {
+    width: 100%;
+    padding: 20px;
+}
+
+.wrapper-card-3,
+.wrapper-card-4 {
+    width: 100%;
+    color: #fff;
+}
+
+.wrapper-card-4 {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.wrapper-card-3 h2,
+.wrapper-card-4 h2 {
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+
+.wind-grid span {
+    font-size: 17px;
+}
+
+.wrapper-card-3 .wind-grid,
+.gust,
+.speed {
+    font-size: 16px;
+}
+
+.wrapper-card-3 .wind-grid,
+.gust {
+    padding-bottom: 5px;
+}
+
+footer {
+    text-align: center;
+}
+
+#s1.darkmode {
+    background: url(images/temanoche.avif);
+    background-position: center;
+}
+
+#s1.darkmode footer {
+    color: #fff;
+}
+
+#s1.darkmode .general-forecast-grid,
+#s1.darkmode .forecast-humidity-pressure-grid,
+#s1.darkmode .forecast-wind-grid {
+    background-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 10px #000;
+}
+
+#s1.darkmode h2,
+#s1.darkmode h3,
+#s1.darkmode h4,
+#s1.darkmode div,
+#s1.darkmode span {
+    color: #000;
+}
+
+#s1.darkmode .checkbox-wrapper label:after {
+    background-color: #000;
+}
 
 @media screen and (min-width: 700px) {
 
@@ -153,11 +274,26 @@ body {
         width: 35%;
     }
 
-    .general-forecast-grid .weather-card-1 {
-        display: flex;
-        justify-content: space-between;
+    .container-general {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 250px 250px;
+        gap: 20px;
     }
 
+    .general-forecast-grid {
+        grid-column: 1;
+        grid-row: 1 / 3;
+    }
+
+    .forecast-wind-grid {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .forecast-humidity-pressure-grid {
+        grid-column: 2;
+        grid-row: 2;
+    }
 }
 
 @media screen and (min-width: 850px) {
@@ -171,54 +307,11 @@ body {
         width: 20%;
     }
 
-    .container-general {
-        max-width: 100%;
-        display: grid;
-        grid-gap: 10px;
-        grid-template-columns: 50% 50%;
-        grid-template-rows: 300px 300px;
-        margin: 0;
-        padding: 20px;
-    }
-
-    .general-forecast-grid {
-        grid-row: 1 / 3;
-    }
-
-    /* .daily-forecast-grid {
-        grid-row: 2;
-    }
-
-    .daily-forecast-grid h3 {
-        overflow-y: hidden;
-    }
-
-    .daily-forecast-grid .weather-card-2 {
-        overflow-y: hidden;
-    } */
-
-    .forecast-wind-humidity-pressure-grid {
-        grid-column: 2;
-        grid-row: 1 / 3;
-    }
-
     .weather-card-3 .wrapper-card-3 h2 {
         font-size: 22px;
     }
 
-    img.init {
-        display: none;
-    }
-
-    div.init h2 {
-        display: none;
-    }
-
-    div:not(.init) h2 {
-        display: block;
-    }
-
-    .weather-card-3 .wrapper-card-3 .wind-grid .deg,
+    .weather-card-3 .wrapper-card-3 .wind-grid,
     .gust,
     .speed {
         font-size: 18px;
@@ -228,28 +321,10 @@ body {
         font-size: 20px;
     }
 
-    .weather-card-3 .wrapper-card-3 .pressure,
+    .weather-card-4 .wrapper-card-4 .pressure,
     .humidity {
         font-size: 20px !important;
     }
-
-    .wrapper-card-3 {
-        grid-template-columns: 200px;
-        grid-template-rows: 150px 150px 150px;
-    }
-
-    .humidity-grid {
-        grid-row: 2;
-    }
-
-    .pressure-grid {
-        grid-row: 3;
-    }
-
-    /* .moon-calendar-grid {
-        grid-row: 1 / 3;
-        grid-column: 2;
-    } */
 }
 
 @media screen and (min-width: 1000px) {
@@ -257,71 +332,50 @@ body {
     .container-header .logo {
         width: 20%;
     }
-
-    /* .container-general {
-        display: grid;
-        grid-gap: 10px;
-        grid-template-columns: 50% 50%;
-        grid-template-rows: 300px 450px;
-    }
-
-    .general-forecast-grid .weather-card-1 {
-        height: 100%;
-    }
-
-    .general-forecast-grid .weather-card-1 .wrapper-card-1 {
-        width: 100%;
-    }
-
-    .city {
-        font-size: 25px;
-    }
-
-    .date {
-        font-size: 18px;
-    }
-
-    .temp {
-        font-size: 35px;
-    }
-
-    .general-forecast-grid {
-        grid-column: 1;
-    }
-
-    /* .daily-forecast-grid {
-        grid-row: 2;
-        grid-column: 1;
-    } */
-
-    /* .forecast-wind-humidity-pressure-grid {
-        grid-row: 1 / 3;
-        grid-column: 2;
-    } */
-
-    /* .moon-calendar-grid {
-        grid-row: 2;
-        grid-column: 2;
-    } */
 }
 
 @media screen and (min-width: 1250px) {
 
-    .container-header .logo {
-        width: 15%;
+    #s1.darkmode .container-header {
+        background-color: rgba(255, 255, 255, 0.4);
     }
 
-    /* .container-general {
-        display: grid;
-        grid-gap: 10px;
-        grid-template-columns: 50% 25% 25%;
-        grid-template-rows: 400px 250px;
-        margin: 0;
-        padding-right: 40px;
-    } */
+    #s1.darkmode .container-header .logo {
+        width: 90%;
+        background-color: transparent;
+    }
 
-    .wrapper-card-1 {
-        padding-left: 20px;
+    .container-header {
+        position: fixed;
+        width: 250px;
+        height: 100%;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .container-header .logo {
+        width: 90%;
+    }
+
+    .wrapper-footer {
+        flex-direction: column;
+    }
+
+    .change-place {
+        justify-content: center;
+    }
+
+    .change-place input {
+        width: 90%;
+    }
+
+    .container-general {
+        height: 100%;
+        grid-template-columns: 600px 300px;
+        align-content: center;
+        padding-left: 50px;
     }
 
     .city {
@@ -345,25 +399,6 @@ body {
         height: 180px;
     }
 
-    /* .daily-forecast-grid {
-        grid-row: 2;
-        grid-column: 1;
-    }
-
-    .daily-forecast-grid h3 {
-        padding-bottom: 40px;
-    } */
-
-    .forecast-wind-humidity-pressure-grid {
-        grid-row: 1 / 3;
-        grid-column: 2;
-    }
-
-    .wrapper-card-3 {
-        grid-template-columns: 400px !important;
-        grid-template-rows: 150px 130px 130px !important;
-    }
-
     .weather-card-3 h2 {
         font-size: 25px !important;
     }
@@ -372,122 +407,62 @@ body {
         font-size: 22px !important;
     }
 
-    .weather-card-3 .wrapper-card-3 .pressure, .humidity {
-        font-size: 30px !important;
-    }
-
-    .weather-card-3 .wind-grid .deg, .gust, .speed {
+    .weather-card-3 .wind-grid,
+    .gust,
+    .speed {
         font-size: 20px !important;
     }
 
-    .pressure-grid {
-        grid-column: 1;
-        grid-row: 3;
+    footer {
+        margin-top: -50px;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+
+    .container-header {
+        gap: 20px;
     }
 
-    /* .moon-calendar-grid {
-        grid-row: 1 / 3;
-        grid-column: 3;
-    } */
-}
+    .wrapper-footer {
+        gap: 30px;
+    }
 
-/* 
-.daily-forecast-grid {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+    .container-general {
+        grid-template-columns: 800px 400px;
+        grid-template-rows: 350px 350px;
+        justify-content: center;
+        padding: 0 100px 0 0;
+    }
 
-.daily-forecast-grid h3 {
-    font-size: 15px;
-    color: #fff;
-}
+    .wrapper-card-1 {
+        font-size: 28px;
+    }
 
-.weather-card-2 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    color: #fff;
-}
+    .forecast-humidity-pressure-grid,
+    .forecast-wind-grid {
+        padding: 28px;
+    }
 
-.grid-item {
-    width: 100%;
-    padding: 10px;
-    text-align: center;
-}
+    .weather-card-3 h2 {
+        font-size: 30px !important;
+    }
 
-.grid-item .date {
-    font-size: 12px;
-    margin-bottom: 10px;
-}
+    .weather-card-3 span {
+        font-size: 24px !important;
+    }
 
-.grid-item .temp {
-    font-size: 12px;
-    margin-bottom: 10px;
-}
+    .weather-card-3 .wind-grid,
+    .gust,
+    .speed {
+        font-size: 23px !important;
+    }
 
-.grid-item .desc {
-    font-size: 12px;
-}
+    .weather-card-4 h2 {
+        font-size: 30px !important;
+    }
 
-.swiper-pagination {
-    position: static !important;
-} */
-
-.forecast-wind-humidity-pressure-grid {
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: start;
-    padding: 30px;
-    overflow-y: hidden;
-}
-
-.weather-card-3 {
-    width: 100%;
-    display: grid;
-}
-
-.wrapper-card-3 {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 400px;
-    grid-template-rows: 150px 80px 80px;
-    gap: 10px;
-    color: #fff;
-}
-
-.wrapper-card-3 h2 {
-    font-size: 20px;
-    padding-bottom: 10px;
-}
-
-.wind-grid span {
-    font-size: 17px;
-}
-
-.humidity-grid,
-.pressure-grid,
-.wind-grid {
-    width: 100%;
-    overflow-y: hidden;
-}
-
-.wrapper-card-3 .humidity,
-.pressure {
-    font-size: 16px;
-}
-
-.wrapper-card-3 .wind-grid .deg,
-.gust,
-.speed {
-    font-size: 16px;
-}
-
-.wrapper-card-3 .wind-grid .deg,
-.gust {
-    padding-bottom: 5px;
+    .weather-card-4 .wrapper-card-4 .pressure, .humidity {
+        font-size: 28px !important;
+    }
 }
